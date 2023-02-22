@@ -18,7 +18,7 @@ def bye():
         f'{Style.BRIGHT + Fore.GREEN}До встречи!🤗{Style.RESET_ALL}'))
 
 
-def phone_menu(number: str = '') -> int:
+def notes_menu(number: str = '') -> int:
     '''
     Вывод в консоль меню приложения. В возврате запускает модуль проверки, где функция принимает число от пользователя, проверяет и возвращает его.
     '''
@@ -70,7 +70,7 @@ def print_note(contact_data: str = '') -> None:
         f'{Style.BRIGHT + Fore.YELLOW}💟Ваша запись: \n {contact_data}{Style.RESET_ALL}'))
 
 
-def input_new_note(new_note: str = '') -> str:
+def input_new_note() -> str:
     '''
     Функция добавляет новые данные, возвращает строку.
     '''
@@ -83,13 +83,10 @@ def input_new_note(new_note: str = '') -> str:
     note.append(' ')
     text = ch.check_alpha('Текст: ')
     text = text.capitalize()
-    note.append(text)
-    # contact.append(' ')
-    # text = ch.check_numbers('Номер телефона: ')
-    # contact.append(text)
     print((
         f'{Style.BRIGHT + Fore.YELLOW}✅Запись сохранена{Style.RESET_ALL}'))
-    return ''.join(note)
+    # return ' '.join(note)
+    return note
 
 
 def edit_data(note_data: str = '') -> str:

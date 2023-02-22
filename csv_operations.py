@@ -5,7 +5,7 @@ global notes_csv
 notes_csv = 'notes_csv.csv'
 
 
-def read_csv():
+def read_csv() -> list:
     '''Чтение файла csv, возвращает список со словарем.'''
     allnotes = []
     with open(notes_csv, 'r', encoding='utf-8', newline='') as file:
@@ -23,10 +23,10 @@ def print_notes(allnotes: list):
         print(note)
 
 
-def write_csv(note: str):
-    '''Принимает новые значения словаря, записывает новую задачу в cvs файл.'''
+def write_csv(note: dict):
+    '''Принимает новые значения в виде словаря, записывает новую заметку в cvs файл'''
     with open(notes_csv, 'a', encoding='utf-8', newline='') as file:
-        fieldnames = ['Заголовок', 'Текст', 'Дата']
+        fieldnames = ['заголовок', 'текст', 'дата']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writerow(note)
 
