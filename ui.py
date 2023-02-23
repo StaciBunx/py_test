@@ -1,5 +1,6 @@
 from colorama import *
 import check as ch
+from datetime import date
 
 
 def hello():
@@ -18,16 +19,21 @@ def bye():
         f'{Style.BRIGHT + Fore.GREEN}До встречи!🤗{Style.RESET_ALL}'))
 
 
+def success():
+    print((
+        f'{Style.BRIGHT + Fore.YELLOW}✅ Успешно!{Style.RESET_ALL}'))
+
+
 def notes_menu(number: str = '') -> int:
     '''
     Вывод в консоль меню приложения. В возврате запускает модуль проверки, где функция принимает число от пользователя, проверяет и возвращает его.
     '''
 
-    print((f'{Style.BRIGHT + Fore.YELLOW}\nВыберите действие с телефонной книгой (введите цифру от 1 до 4): \n{Style.RESET_ALL}'
-          '1 - 📜Просмотреть все записи \n'
-           '2 - 👀Поиск записи по дате \n'
-           '3 - ✍️Добавить новую запись \n'
-           '4 - ✈️Завершить работу\n'
+    print((f'{Style.BRIGHT + Fore.YELLOW}\nВыберите действие с записной книжкой (введите цифру от 1 до 4): \n{Style.RESET_ALL}'
+          '1 - 📜 Просмотреть все записи \n'
+           '2 - 👀 Поиск записи по дате \n'
+           '3 - ✍️ Добавить новую запись \n'
+           '4 - ✈️ Завершить работу\n'
            f'{Style.RESET_ALL}'))
     return ch.check_menu(number, 5)
 
@@ -70,22 +76,21 @@ def print_note(contact_data: str = '') -> None:
         f'{Style.BRIGHT + Fore.YELLOW}💟Ваша запись: \n {contact_data}{Style.RESET_ALL}'))
 
 
-def input_new_note() -> str:
+def input_new_note() -> list:
     '''
     Функция добавляет новые данные, возвращает строку.
     '''
     note = []
     print((
-        f'{Style.BRIGHT + Fore.YELLOW}✍️ Добавьте новую запись: {Style.RESET_ALL}'))
-    text = ch.check_alpha('Заголовок: ')
-    text = text.capitalize()
-    note.append(text)
-    note.append(' ')
+        f'{Style.BRIGHT + Fore.YELLOW}✍️  Добавьте новую запись: {Style.RESET_ALL}'))
+    heading = ch.check_alpha('Заголовок: ')
+    heading = heading.capitalize()
+    note.append(heading)
     text = ch.check_alpha('Текст: ')
     text = text.capitalize()
-    print((
-        f'{Style.BRIGHT + Fore.YELLOW}✅Запись сохранена{Style.RESET_ALL}'))
-    # return ' '.join(note)
+    note.append(text)
+    current_date = date.today()
+    note.append(current_date)
     return note
 
 
