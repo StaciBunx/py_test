@@ -15,9 +15,7 @@ def mynotes():
 
         if command == 3:  # добавить новую запись
             input_note = ui.input_new_note()
-            input_note = note.lower()
             note = {}
-            all_notes = csvo.read_csv()
             note['заголовок'] = input_note[0]
             note['текст'] = input_note[1]
             note['дата'] = date

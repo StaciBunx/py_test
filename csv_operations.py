@@ -23,12 +23,12 @@ def print_notes(allnotes: list):
         print(note)
 
 
-def write_csv(note: dict):
+def write_csv(input_note: dict):
     '''Принимает новые значения в виде словаря, записывает новую заметку в cvs файл'''
     with open(notes_csv, 'a', encoding='utf-8', newline='') as file:
         fieldnames = ['заголовок', 'текст', 'дата']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
-        writer.writerow(note)
+        writer.writerow(input_note)
 
 
 def delete_csv(search_data: str) -> str:
