@@ -9,8 +9,10 @@ def mynotes():
     ui.hello()
     while True:
         command = ui.notes_menu()
-        if command == 1:  # просмотре всех записей
-            csvo.print_notes(csvo.read_csv)
+        if command == 1:  # просмотр всех записей
+            # csvo.print_notes(csvo.read_csv)
+            all_notes_list = csvo.read_csv()
+            noto.print_notes(all_notes_list)
             log.log('Просмотр всех заметок', 'Успешно')
         # if command == 2:  # поиск записи по дате
 

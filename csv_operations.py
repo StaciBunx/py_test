@@ -15,12 +15,6 @@ def read_csv() -> list:
     return allnotes
 
 
-def print_notes(allnotes: list):
-    """
-    Показывает все заметки в консоли
-    """
-    for note in allnotes:
-        print(note)
 
 
 def write_csv(input_note: dict):
