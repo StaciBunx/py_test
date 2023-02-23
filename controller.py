@@ -23,4 +23,6 @@ def mynotes():
             note['дата'] = date
             csvo.write_csv(note)
 
-        # if command == 4:  # завершить работу
+        if command == 4:  # завершить работу
+            ui.bye()
+            break
