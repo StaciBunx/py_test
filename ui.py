@@ -33,12 +33,12 @@ def notes_menu(number: str = '') -> int:
           '1 - 📜 Просмотреть все записи \n'
            '2 - 👀 Поиск записей \n'
            '3 - ✍️ Добавить новую запись \n'
-           '4 - ✈️ Завершить работу\n'
+           '4 - ✈️  Завершить работу\n'
            f'{Style.RESET_ALL}'))
     return ch.check_menu(number, 5)
 
 
-def input_search(number: str = '') -> int:
+def search_submenu(number: str = '') -> int:
     '''
     Подменю для поиска записей.
     '''
@@ -48,14 +48,14 @@ def input_search(number: str = '') -> int:
     return ch.check_menu(number, 3)
 
 
-def search_submenu(number: str = '') -> int:
-    '''
-    Подменю после вызова поиска записи
-    '''
-    print((f'{Style.BRIGHT + Fore.YELLOW}:eyes:  Выберите действие для работы: {Style.RESET_ALL} \n'
-           '1 - 🧹 Удалить запись \n'
-           '2 - ✏️ Редактировать запись'))
-    return ch.check_menu(number, 3)
+# def search_submenu(number: str = '') -> int:
+#     '''
+#     Подменю после вызова поиска записи
+#     '''
+#     print((f'{Style.BRIGHT + Fore.YELLOW} 👀 Выберите действие для работы: {Style.RESET_ALL} \n'
+#            '1 - 🧹 Удалить запись \n'
+#            '2 - ✏️ Редактировать запись'))
+#     return ch.check_menu(number, 3)
 
 
 def search_input() -> None:
@@ -69,8 +69,8 @@ def print_note(contact_data: str = '') -> None:
     '''
     Выводит определенную запись в консоль, н-р после поиска, или редактирования, или добавления.
     '''
-    print(e.emojize(
-        f'{Style.BRIGHT + Fore.YELLOW}💟Ваша запись: \n {contact_data}{Style.RESET_ALL}'))
+    print(
+        f'{Style.BRIGHT + Fore.YELLOW}💟 Ваша запись: \n {contact_data}{Style.RESET_ALL}')
 
 
 def input_new_note() -> list:

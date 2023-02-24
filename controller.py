@@ -11,18 +11,23 @@ def mynotes():
         command = ui.notes_menu()
         if command == 1:  # просмотр всех записей
             csvo.print_cvs()
-            # csvo.print_notes(csvo.read_csv)
-            # all_notes_list = csvo.read_csv()
-            # print(noto.print_notes(all_notes_list))
-            # log.log('Просмотр всех заметок', 'Успешно')
-        # if command == 2:  # поиск записи по дате
+            log.log('Просмотр всех заметок', 'Успешно')
+        if command == 2:  # поиск записи
+            next_command = ui.search_submenu()
+            # if next_command == 1: #поиск по тексту
+            #     search_input = ui.search_input()
+            #     ui.print_note(search_input)
+
+                # csvo.delete_csv(search_input)
+            # if next_command ==2: #поиск по дате
 
         if command == 3:  # добавить новую запись
             input_note = ui.input_new_note()
             note = noto.write_note(input_note)
             csvo.write_csv(note)
             ui.success()
-
+            log.log('Добавить новую запись', 'Успешно')
         if command == 4:  # завершить работу
             ui.bye()
+            log.log('Завершение работы', 'Успешно')
             break
