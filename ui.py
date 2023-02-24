@@ -42,9 +42,9 @@ def input_search(number: str = '') -> int:
     '''
     Подменю для поиска записей.
     '''
-    print(e.emojize(f'{Style.BRIGHT + Fore.YELLOW}Выберите по какому параметру будет поиск (введите 1 или 2): {Style.RESET_ALL} \n'
-                    '1 - 🔡 По тексту записи \n'
-                    '2 - 📆 По дате записи'))
+    print(f'{Style.BRIGHT + Fore.YELLOW}Выберите по какому параметру будет поиск (введите 1 или 2): {Style.RESET_ALL} \n'
+          '1 - 🔡 По тексту записи \n'
+          '2 - 📆 По дате записи')
     return ch.check_menu(number, 3)
 
 
@@ -56,6 +56,14 @@ def search_submenu(number: str = '') -> int:
            '1 - 🧹 Удалить запись \n'
            '2 - ✏️ Редактировать запись'))
     return ch.check_menu(number, 3)
+
+
+def search_input() -> None:
+    '''Ввод запроса в поисковую строку'''
+    search_note = str(input(
+        f'{Style.BRIGHT + Fore.YELLOW}✍️ Введите текст для поиска:{Style.RESET_ALL} ')).capitalize()
+    return search_note
+
 
 def print_note(contact_data: str = '') -> None:
     '''
