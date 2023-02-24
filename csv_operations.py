@@ -25,7 +25,8 @@ def print_cvs():
     with open(notes_csv, 'r', encoding='utf-8', newline='') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:
-            print(', '.join(row))
+            print('\n'.join(row))
+            print('\n')
 
 # def delete_csv(search_data: str) -> str:
 #     '''

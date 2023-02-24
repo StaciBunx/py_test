@@ -73,7 +73,7 @@ def input_new_note() -> list:
     print((
         f'{Style.BRIGHT + Fore.YELLOW}✍️  Добавьте новую запись: {Style.RESET_ALL}'))
     heading = ch.check_alpha('Заголовок: ')
-    heading = heading.capitalize()
+    heading = heading.upper()
     note.append(heading)
     text = ch.check_alpha('Текст: ')
     text = text.capitalize()
