@@ -87,22 +87,30 @@ def input_new_note() -> list:
     '''
     note = []
     print((
-        f'{Style.BRIGHT + Fore.YELLOW}✍️  Добавьте новую запись: {Style.RESET_ALL}'))
-    heading = ch.check_alpha('Заголовок: ')
+        f'{Style.BRIGHT + Fore.YELLOW}✍️ Введите данные: {Style.RESET_ALL}'))
+    heading = ch.check_empty('Заголовок: ')
     heading = heading.capitalize()
     note.append(heading)
-    text = ch.check_alpha('Текст: ')
-    # text = text.capitalize()
+    text = ch.check_empty('Текст: ')
     note.append(text)
     current_date = date.today()
     note.append(current_date)
     return note
 
 
-def edit_note(edit_input: str = '') -> str:
-    '''
-    Функция перезаписывает новые данные поверх имеющейся записи
-    '''
-    print((
-        f'{Style.BRIGHT + Fore.YELLOW}📇 Введите новые данные: {Style.RESET_ALL}'))
-    return ch.check_length(edit_input)
+# def edit_note(edit_input: str = '') -> str:
+#     '''
+#     Функция перезаписывает новые данные поверх имеющейся записи
+#     '''
+#     print((
+#         f'{Style.BRIGHT + Fore.YELLOW}📇 Введите новые данные: {Style.RESET_ALL}'))
+#     note = []
+#     heading = ch.check_alpha('Заголовок: ')
+#     heading = heading.capitalize()
+#     note.append(heading)
+#     text = ch.check_alpha('Текст: ')
+#     # text = text.capitalize()
+#     note.append(text)
+#     current_date = date.today()
+#     note.append(current_date)
+#     return note

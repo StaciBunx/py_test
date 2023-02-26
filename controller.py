@@ -28,7 +28,10 @@ def mynotes():
                         csvo.delete_csv(search_input)
                         ui.success()
                     elif action_command == 2:
-                        ui.edit_note()
+                        edit_note = ui.input_new_note()
+                        csvo.delete_csv(search_input)
+                        csvo.write_csv(edit_note)
+
 
         if command == 3:  # добавить новую запись
             input_note = ui.input_new_note()

@@ -67,7 +67,7 @@ def search_note_by_input(search_input: str) -> str:
     return find_note
 
 
-def edit_note(find_note: str, new_note: str):
+def edit_note(input_string: str, new_note: str):
     """
     Редактирует заметку
 
@@ -78,7 +78,7 @@ def edit_note(find_note: str, new_note: str):
         reader = csv.reader(file)
         for row in reader:
             note = ','.join(row).lower()
-            if find_note.lower() in note:
+            if input_string.lower() in note:
                 temp_note = new_note
                 continue
             else:
