@@ -48,14 +48,14 @@ def search_submenu(number: str = '') -> int:
     return ch.check_menu(number, 3)
 
 
-# def search_submenu_action(number: str = '') -> int:
-#     '''
-#     Подменю после вызова поиска записи
-#     '''
-#     print((f'{Style.BRIGHT + Fore.YELLOW} 👀 Выберите действие для работы: {Style.RESET_ALL} \n'
-#            '1 - 🧹 Удалить запись \n'
-#            '2 - ✏️ Редактировать запись'))
-#     return ch.check_menu(number, 3)
+def search_submenu_action(number: str = '') -> int:
+    '''
+    Подменю после вызова поиска записи
+    '''
+    print((f'{Style.BRIGHT + Fore.YELLOW} 👀 Выберите дальнейшее действие для работы: {Style.RESET_ALL} \n'
+           '1 - 🧹 Удалить запись \n'
+           '2 - ✏️ Редактировать запись'))
+    return ch.check_menu(number, 3)
 
 
 def search_input() -> None:
