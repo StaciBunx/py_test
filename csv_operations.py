@@ -64,18 +64,16 @@ def search_note_by_input(search_input: str) -> str:
     """
     with open(notes_csv, 'r', encoding='utf-8', newline='\n') as file:
         reader = csv.reader(file)
-        temp = ''
+        find_note = ''
         for row in reader:
-            note = ','.join(row).lower()
+            note = '\n'.join(row).lower()
             if search_input.lower() in note:
-                temp = note
+                find_note = note.capitalize()
                 continue
-            # else:
-            #     print(f'Не найдено заметок c текстом "{search_input}"')
-    if (temp == ''):
+    if (find_note == ''):
         print(f'Не найдено заметок c текстом "{search_input}"')
     else:
-        print(temp)
+        print(f'Найдена заметка:\n{find_note}')
 
 
 def edit_note(find_note: str, new_note: str):

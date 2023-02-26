@@ -17,7 +17,7 @@ def mynotes():
             if next_command == 1: #поиск по тексту
                 search_input = ui.search_input()
                 csvo.search_note_by_input(search_input)
-
+                log.log('Поиск заметки по тексту', 'Успешно')
             # if next_command ==2: #поиск по дате
 
         if command == 3:  # добавить новую запись

@@ -81,10 +81,10 @@ def input_new_note() -> list:
     print((
         f'{Style.BRIGHT + Fore.YELLOW}✍️  Добавьте новую запись: {Style.RESET_ALL}'))
     heading = ch.check_alpha('Заголовок: ')
-    heading = heading.upper()
+    heading = heading.capitalize()
     note.append(heading)
     text = ch.check_alpha('Текст: ')
-    text = text.capitalize()
+    # text = text.capitalize()
     note.append(text)
     current_date = date.today()
     note.append(current_date)
