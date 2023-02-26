@@ -31,19 +31,19 @@ def print_cvs():
             print('\n')
 
 
-def delete_csv(found_note: str) -> None:
+def delete_csv(input_string: str) -> None:
     '''
     Удаляет задачу из файла cvs. Ищет в файле строку с искомым значением, остальные строки записывает во времемнное хранилище.
     Затем значения из временного хранилища перезаписывает в файл, стирая предыдущие данные.
     Возвращает строку с информацией о ходе выполнения задачи.
     '''
     temp_string = ''
-    found_note = ''
+    found_note =''
     with open(notes_csv, 'r', encoding='utf-8', newline='\n') as file:
         reader = csv.reader(file)
         for row in reader:
             note = ','.join(row).lower()
-            if found_note in note:
+            if input_string.lower() in note:
                 found_note = note
                 continue
             else:

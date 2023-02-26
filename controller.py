@@ -24,9 +24,12 @@ def mynotes():
                     log.log('Поиск заметки по тексту', 'Успешно')
                     ui.note_found(find_note)
                     action_command = ui.search_submenu_action()
-                    if action_command == 1:  # удалить
-                        csvo.delete_csv(find_note)
+                    if action_command == 1:  # удалить запись
+                        csvo.delete_csv(search_input)
                         ui.success()
+                    elif action_command == 2:
+                        ui.edit_note()
+
         if command == 3:  # добавить новую запись
             input_note = ui.input_new_note()
             note = noto.write_note(input_note)

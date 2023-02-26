@@ -73,12 +73,12 @@ def search_input() -> None:
     return search_note
 
 
-def print_note(contact_data: str = '') -> None:
-    '''
-    Выводит определенную запись в консоль, н-р после поиска, или редактирования, или добавления.
-    '''
-    print(
-        f'{Style.BRIGHT + Fore.YELLOW}💟 Ваша запись: \n {contact_data}{Style.RESET_ALL}')
+# def print_note(contact_data: str = '') -> None:
+#     '''
+#     Выводит определенную запись в консоль, н-р после поиска, или редактирования, или добавления.
+#     '''
+#     print(
+#         f'{Style.BRIGHT + Fore.YELLOW}💟 Ваша запись: \n {contact_data}{Style.RESET_ALL}')
 
 
 def input_new_note() -> list:
@@ -99,10 +99,10 @@ def input_new_note() -> list:
     return note
 
 
-def edit_data(note_data: str = '') -> str:
+def edit_note(edit_input: str = '') -> str:
     '''
     Функция перезаписывает новые данные поверх имеющейся записи
     '''
     print((
-        f'{Style.BRIGHT + Fore.YELLOW}📇Введите новые данные: {Style.RESET_ALL}'))
-    return ch.check_length(note_data)
+        f'{Style.BRIGHT + Fore.YELLOW}📇 Введите новые данные: {Style.RESET_ALL}'))
+    return ch.check_length(edit_input)
