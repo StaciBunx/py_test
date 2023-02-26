@@ -14,11 +14,10 @@ def mynotes():
             log.log('Просмотр всех заметок', 'Успешно')
         if command == 2:  # поиск записи
             next_command = ui.search_submenu()
-            # if next_command == 1: #поиск по тексту
-            #     search_input = ui.search_input()
-            #     ui.print_note(search_input)
+            if next_command == 1: #поиск по тексту
+                search_input = ui.search_input()
+                csvo.search_note_by_input(search_input)
 
-                # csvo.delete_csv(search_input)
             # if next_command ==2: #поиск по дате
 
         if command == 3:  # добавить новую запись

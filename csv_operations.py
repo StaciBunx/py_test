@@ -14,6 +14,7 @@ def read_csv() -> list:
             allnotes.append(row)
     return allnotes
 
+
 def write_csv(input_note: dict):
     '''Принимает новые значения в виде словаря, записывает новую заметку в cvs файл'''
     with open(notes_csv, 'a', encoding='utf-8', newline='') as file:
@@ -21,12 +22,14 @@ def write_csv(input_note: dict):
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writerow(input_note)
 
+
 def print_cvs():
     with open(notes_csv, 'r', encoding='utf-8', newline='') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:
             print('\n'.join(row))
             print('\n')
+
 
 def delete_csv(search_data: str) -> str:
     '''
@@ -55,19 +58,24 @@ def delete_csv(search_data: str) -> str:
     return status
 
 
-def search_note_by_data(search_data: str) -> str:
+def search_note_by_input(search_input: str) -> str:
     """
     Ищет контакт по запросу
     """
     with open(notes_csv, 'r', encoding='utf-8', newline='\n') as file:
         reader = csv.reader(file)
+        temp = ''
         for row in reader:
-
-            find_note = ','.join(row).lower()
-            if search_data in find_note:
-                return find_note
-            else:
-                print(f'Не найдено заметок c этой датой"{search_data}"')
+            note = ','.join(row).lower()
+            if search_input.lower() in note:
+                temp = note
+                continue
+            # else:
+            #     print(f'Не найдено заметок c текстом "{search_input}"')
+    if (temp == ''):
+        print(f'Не найдено заметок c текстом "{search_input}"')
+    else:
+        print(temp)
 
 
 def edit_note(find_note: str, new_note: str):
@@ -87,13 +95,12 @@ def edit_note(find_note: str, new_note: str):
             else:
                 temp_string += f'{note}\n'
         temp_string += f'{temp_note}\n'
-    with open(notes_csv,'w', encoding='utf-8', newline='\n') as file:
+    with open(notes_csv, 'w', encoding='utf-8', newline='\n') as file:
         file.write(temp_string)
     if (temp_note == ''):
         return f'Не найдено задач по запросу {find_note}'
     else:
-         return f'Успешно перезаписно'
-
+        return f'Успешно перезаписно'
 
 
 # def search_contact(contact):

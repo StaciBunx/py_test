@@ -32,7 +32,7 @@ def notes_menu(number: str = '') -> int:
     print((f'{Style.BRIGHT + Fore.YELLOW}\nВыберите действие с записной книжкой (введите цифру от 1 до 4): \n{Style.RESET_ALL}'
           '1 - 📜 Просмотреть все записи \n'
            '2 - 👀 Поиск записей \n'
-           '3 - ✍️ Добавить новую запись \n'
+           '3 - ✍️  Добавить новую запись \n'
            '4 - ✈️  Завершить работу\n'
            f'{Style.RESET_ALL}'))
     return ch.check_menu(number, 5)
@@ -48,7 +48,7 @@ def search_submenu(number: str = '') -> int:
     return ch.check_menu(number, 3)
 
 
-# def search_submenu(number: str = '') -> int:
+# def search_submenu_action(number: str = '') -> int:
 #     '''
 #     Подменю после вызова поиска записи
 #     '''
@@ -61,7 +61,7 @@ def search_submenu(number: str = '') -> int:
 def search_input() -> None:
     '''Ввод запроса в поисковую строку'''
     search_note = str(input(
-        f'{Style.BRIGHT + Fore.YELLOW}✍️ Введите текст для поиска:{Style.RESET_ALL} ')).capitalize()
+        f'{Style.BRIGHT + Fore.YELLOW}✍️  Введите текст для поиска:{Style.RESET_ALL} ')).capitalize()
     return search_note
 
 
