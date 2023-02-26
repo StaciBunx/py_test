@@ -30,7 +30,8 @@ def mynotes():
                     elif action_command == 2:
                         edit_note = ui.input_new_note()
                         csvo.delete_csv(search_input)
-                        csvo.write_csv(edit_note)
+                        note = noto.write_note(edit_note)
+                        csvo.write_csv(note)
 
 
         if command == 3:  # добавить новую запись
