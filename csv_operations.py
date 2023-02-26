@@ -31,31 +31,25 @@ def print_cvs():
             print('\n')
 
 
-def delete_csv(search_data: str) -> str:
+def delete_csv(found_note: str) -> None:
     '''
     Удаляет задачу из файла cvs. Ищет в файле строку с искомым значением, остальные строки записывает во времемнное хранилище.
     Затем значения из временного хранилища перезаписывает в файл, стирая предыдущие данные.
     Возвращает строку с информацией о ходе выполнения задачи.
     '''
     temp_string = ''
-    status = ''
     found_note = ''
     with open(notes_csv, 'r', encoding='utf-8', newline='\n') as file:
         reader = csv.reader(file)
         for row in reader:
             note = ','.join(row).lower()
-            if search_data in note:
+            if found_note in note:
                 found_note = note
                 continue
             else:
                 temp_string += f'{note}\n'
     with open(notes_csv, 'w', encoding='utf-8', newline='\n') as file:
         file.write(temp_string)
-    if (found_note == ''):
-        status = f'Не найдено заметок c этой датой"{search_data}"'
-    else:
-        status = f'Вы удалили из заметок:\n{found_note}'
-    return status
 
 
 def search_note_by_input(search_input: str) -> str:
