@@ -70,10 +70,7 @@ def search_note_by_input(search_input: str) -> str:
             if search_input.lower() in note:
                 find_note = note.capitalize()
                 continue
-    if (find_note == ''):
-        print(f'Не найдено заметок c текстом "{search_input}"')
-    else:
-        print(f'Найдена заметка:\n{find_note}')
+    return find_note
 
 
 def edit_note(find_note: str, new_note: str):

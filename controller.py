@@ -12,17 +12,19 @@ def mynotes():
         if command == 1:  # просмотр всех записей
             csvo.print_cvs()
             log.log('Просмотр всех заметок', 'Успешно')
-        if command == 2:  # поиск записи
+        elif command == 2:  # поиск записи
             next_command = ui.search_submenu()
-            if next_command == 1: #поиск по тексту
+            if next_command == 1:  # поиск по тексту
                 search_input = ui.search_input()
-                csvo.search_note_by_input(search_input)
-                log.log('Поиск заметки по тексту', 'Успешно')
-                action_command = ui.search_submenu_action
-                # if action_command = 1: #удаление записи
-                # if action_command = 2: #редакирование записи
-
-            # if next_command ==2: #поиск по дате
+                find_note = csvo.search_note_by_input(search_input)
+                if (find_note == ''):
+                    log.log('Поиск заметки по тексту', 'Ошибка')
+                    ui.note_not_found()
+                else:
+                    log.log('Поиск заметки по тексту', 'Успешно')
+                    ui.note_found(find_note)
+                    action_command = ui.search_submenu_action()
+                    if action_command == 1: #удалить
 
         if command == 3:  # добавить новую запись
             input_note = ui.input_new_note()

@@ -48,13 +48,21 @@ def search_submenu(number: str = '') -> int:
     return ch.check_menu(number, 3)
 
 
+def note_not_found():
+    print('По вашему запросу ничего не найдено')
+
+
+def note_found(find_note: str) -> None:
+    print(f'Найдена заметка:\n{find_note}')
+
+
 def search_submenu_action(number: str = '') -> int:
     '''
     Подменю после вызова поиска записи
     '''
-    print((f'{Style.BRIGHT + Fore.YELLOW} 👀 Выберите дальнейшее действие для работы: {Style.RESET_ALL} \n'
+    print((f'{Style.BRIGHT + Fore.YELLOW}👀 Выберите дальнейшее действие для работы: {Style.RESET_ALL} \n'
            '1 - 🧹 Удалить запись \n'
-           '2 - ✏️ Редактировать запись'))
+           '2 - ✏️  Редактировать запись'))
     return ch.check_menu(number, 3)
 
 
