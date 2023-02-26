@@ -68,17 +68,19 @@ def search_submenu_action(number: str = '') -> int:
 
 def search_input() -> None:
     '''Ввод запроса в поисковую строку'''
-    search_note = str(input(
-        f'{Style.BRIGHT + Fore.YELLOW}✍️  Введите текст для поиска:{Style.RESET_ALL} ')).capitalize()
+    search_input = str(input((
+        f'{Style.BRIGHT + Fore.YELLOW}✍️  Введите текст для поиска:{Style.RESET_ALL} ')))
+    search_note = ch.check_empty(search_input)
+    search_note = ch.check_alpha(search_input)
     return search_note
 
 
-# def print_note(contact_data: str = '') -> None:
-#     '''
-#     Выводит определенную запись в консоль, н-р после поиска, или редактирования, или добавления.
-#     '''
-#     print(
-#         f'{Style.BRIGHT + Fore.YELLOW}💟 Ваша запись: \n {contact_data}{Style.RESET_ALL}')
+def search_date() -> None:
+    '''Ввод запроса в поисковую строку'''
+    search_date = str(input(
+        f'{Style.BRIGHT + Fore.YELLOW}✍️  Введите дату заметки для поиска в формате YYYY-MM-DD:{Style.RESET_ALL} '))
+    ch.check_digit(ch.check_empty(search_date))
+    return search_date
 
 
 def input_new_note() -> list:

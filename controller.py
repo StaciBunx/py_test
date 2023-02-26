@@ -32,6 +32,8 @@ def mynotes():
                         csvo.delete_csv(search_input)
                         note = noto.write_note(edit_note)
                         csvo.write_csv(note)
+                        ui.success()
+            # elif next_command == 2: # поиск по дате
 
 
         if command == 3:  # добавить новую запись

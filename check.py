@@ -16,28 +16,34 @@ def check_menu(num: str, menu_num: int) -> int:
                 Fore.RED + f'Неверно! Введите число от 1 до {menu_num-1} в соответствии с пунктами меню!' + Style.RESET_ALL)
 
 
-# def check_length(length: str) -> str:
-#     '''Проверка длины вводимой строки и тут же проверка на пустую строку'''
-#     while True:
-#         try:
-#             l = input(length)
-#             if len(l) == 0:
-#                 print(Fore.RED + 'Вы ничего не ввели!' + Style.RESET_ALL)
-#             elif len(l) < 280:
-#                 return l
-#             else:
-#                 print(Fore.RED + 'Вы ввели слишком длинный текст! ' + Style.RESET_ALL)
-#         except ValueError:
-#             print(Fore.RED + 'Неверно! Повторите ввод!' + Style.RESET_ALL)
+def check_alpha(input: str) -> str:
+    while True:
+        try:
+            if (input.isalpha()):
+                return input
+            else:
+                print(Fore.RED + 'Вы ввели не текст' + Style.RESET_ALL)
+        except ValueError:
+            print(Fore.RED + 'Неверно!' + Style.RESET_ALL)
 
 
-def check_empty(text: str) -> str:
+def check_digit(date: str) -> int:
+    date.replace('-', '')
+    try:
+        if (date.isdigit()):
+            return date
+        else:
+            print(Fore.RED + 'Вы ввели что-то не то' + Style.RESET_ALL)
+    except ValueError:
+        print(Fore.RED + 'Неверно!' + Style.RESET_ALL)
+
+
+def check_empty(input:str) -> str:
     '''Проверка на буквы (не допускает ввода пустой строки)'''
     while True:
         try:
-            a = input(text)
-            if (len(a)!=0):
-                return a
+            if (len(input) != 0):
+                return input
             else:
                 print(
                     Fore.RED + 'Вы ничего не ввели!' + Style.RESET_ALL)

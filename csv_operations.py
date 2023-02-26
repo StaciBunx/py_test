@@ -67,29 +67,6 @@ def search_note_by_input(search_input: str) -> str:
     return find_note
 
 
-def edit_note(input_string: str, new_note: str):
-    """
-    Редактирует заметку
-
-    """
-    temp_string = ''
-    temp_note = ''
-    with open(notes_csv, 'r', encoding='utf-8', newline='\n') as file:
-        reader = csv.reader(file)
-        for row in reader:
-            note = ','.join(row).lower()
-            if input_string.lower() in note:
-                temp_note = new_note
-                continue
-            else:
-                temp_string += f'{note}\n'
-        temp_string += f'{temp_note}\n'
-    with open(notes_csv, 'w', encoding='utf-8', newline='\n') as file:
-        file.write(temp_string)
-    if (temp_note == ''):
-        return f'Не найдено задач по запросу {find_note}'
-    else:
-        return f'Успешно перезаписно'
 
 
 # def search_contact(contact):
