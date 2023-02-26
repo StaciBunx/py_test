@@ -16,15 +16,30 @@ def check_menu(num: str, menu_num: int) -> int:
                 Fore.RED + f'Неверно! Введите число от 1 до {menu_num-1} в соответствии с пунктами меню!' + Style.RESET_ALL)
 
 
-def check_alpha(input: str) -> str:
+def check_empty(text: str) -> str:
+    '''Проверка - не допускает ввода пустой строки'''
     while True:
         try:
-            if (input.isalpha()):
-                return input
+            input_str = str(input(text))
+            if (len(input_str) != 0):
+                return input_str
             else:
-                print(Fore.RED + 'Вы ввели не текст' + Style.RESET_ALL)
+                print(
+                    Fore.RED + 'Вы ничего не ввели!' + Style.RESET_ALL)
         except ValueError:
             print(Fore.RED + 'Неверно!' + Style.RESET_ALL)
+
+
+# def check_alpha(text: str) -> str:
+#     while True:
+#         try:
+#             input_str = str(text)
+#             if (input_str.isalpha()):
+#                 return input_str
+#             else:
+#                 print(Fore.RED + 'Вы ввели не текст' + Style.RESET_ALL)
+#         except ValueError:
+#             print(Fore.RED + 'Неверно!' + Style.RESET_ALL)
 
 
 def check_digit(date: str) -> int:
@@ -38,14 +53,15 @@ def check_digit(date: str) -> int:
         print(Fore.RED + 'Неверно!' + Style.RESET_ALL)
 
 
-def check_empty(input:str) -> str:
-    '''Проверка на буквы (не допускает ввода пустой строки)'''
-    while True:
-        try:
-            if (len(input) != 0):
-                return input
-            else:
-                print(
-                    Fore.RED + 'Вы ничего не ввели!' + Style.RESET_ALL)
-        except ValueError:
-            print(Fore.RED + 'Неверно!' + Style.RESET_ALL)
+# def check_empty(input:str) -> str:
+#     '''Проверка на буквы (не допускает ввода пустой строки)'''
+#     while True:
+#         try:
+#             if (len(input) != 0):
+#                 return input
+#             else:
+#                 print(
+#                     Fore.RED + 'Вы ничего не ввели!' + Style.RESET_ALL)
+#                 break
+#         except ValueError:
+#             print(Fore.RED + 'Неверно!' + Style.RESET_ALL)

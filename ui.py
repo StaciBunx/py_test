@@ -66,14 +66,13 @@ def search_submenu_action(number: str = '') -> int:
     return ch.check_menu(number, 3)
 
 
-def search_input() -> None:
+def search_input(text: str = '') -> str:
     '''Ввод запроса в поисковую строку'''
-    search_input = str(input((
-        f'{Style.BRIGHT + Fore.YELLOW}✍️  Введите текст для поиска:{Style.RESET_ALL} ')))
-    search_note = ch.check_empty(search_input)
-    search_note = ch.check_alpha(search_input)
-    return search_note
-
+    print((
+        f'{Style.BRIGHT + Fore.YELLOW}✍️  Введите текст для поиска:{Style.RESET_ALL} '))
+    # search_note = ch.check_empty(text)
+    # search_note = ch.check_alpha(text)
+    return ch.check_empty(text)
 
 def search_date() -> None:
     '''Ввод запроса в поисковую строку'''
