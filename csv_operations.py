@@ -8,7 +8,7 @@ notes_csv = 'notes_csv.csv'
 def write_csv(input_note: dict) -> None:
     '''Принимает новые значения в виде словаря, записывает новую заметку в cvs файл'''
     with open(notes_csv, 'a', encoding='utf-8', newline='') as file:
-        fieldnames = ['заголовок', 'текст', 'дата']
+        fieldnames = ['идентификатор','заголовок', 'текст', 'дата']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writerow(input_note)
 

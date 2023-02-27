@@ -86,6 +86,8 @@ def input_new_note() -> list:
     note = []
     print((
         f'{Style.BRIGHT + Fore.YELLOW}✍️ Введите данные: {Style.RESET_ALL}'))
+    id = ch.check_empty('ID: ')
+    note.append(id)
     heading = ch.check_empty('Заголовок: ')
     heading = heading.capitalize()
     note.append(heading)
