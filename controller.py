@@ -25,6 +25,7 @@ def mynotes():
                     ui.note_found(find_note)
                     action_command = ui.search_submenu_action()
                     if action_command == 1:  # удалить запись
+                        log.log('Удаление записи', 'Успешно')
                         csvo.delete_csv(search_input)
                         ui.success()
                     elif action_command == 2:
@@ -32,19 +33,18 @@ def mynotes():
                         csvo.delete_csv(search_input)
                         note = noto.write_note(edit_note)
                         csvo.write_csv(note)
+                        log.log('Перезапись заметки', 'Успешно')
                         ui.success()
-            elif next_command == 2: # поиск по дате
+            elif next_command == 2:  # вывод заметок по дате
                 search_date = ui.search_date()
-                csvo.search_note_by_date(search_date)
-
-
-
+                csvo.print_note_by_date(search_date)
+                log.log('Печать заметок по дате', 'Успешно')
         if command == 3:  # добавить новую запись
             input_note = ui.input_new_note()
             note = noto.write_note(input_note)
             csvo.write_csv(note)
             ui.success()
-            log.log('Добавить новую запись', 'Успешно')
+            log.log('Добавить новую заметку', 'Успешно')
         if command == 4:  # завершить работу
             ui.bye()
             log.log('Завершение работы', 'Успешно')
