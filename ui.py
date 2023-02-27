@@ -74,13 +74,12 @@ def search_input(text: str = '') -> str:
     # search_note = ch.check_alpha(text)
     return ch.check_empty(text)
 
-def search_date() -> None:
-    '''Ввод запроса в поисковую строку'''
-    search_date = str(input(
-        f'{Style.BRIGHT + Fore.YELLOW}✍️  Введите дату заметки для поиска в формате YYYY-MM-DD:{Style.RESET_ALL} '))
-    ch.check_digit(ch.check_empty(search_date))
-    return search_date
 
+def search_date(date: str = '') -> str:
+    '''Ввод запроса в поисковую строку'''
+    print((
+        f'{Style.BRIGHT + Fore.YELLOW}✍️  Введите дату заметки для поиска в формате YYYY-MM-DD:{Style.RESET_ALL} '))
+    return ch.check_empty(date)
 
 def input_new_note() -> list:
     '''

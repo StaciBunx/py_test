@@ -31,6 +31,15 @@ def print_cvs():
             print('\n')
 
 
+def search_note_by_date(date_input: str) -> str:
+    with open(notes_csv, 'r', encoding='utf-8', newline='\n') as file:
+        reader = csv.reader(file, delimiter=',')
+        for row in reader:
+            if date_input in row:
+                print('\n'.join(row))
+                print('\n')
+
+
 def delete_csv(input_string: str) -> None:
     '''
     Удаляет задачу из файла cvs. Ищет в файле строку с искомым значением, остальные строки записывает во времемнное хранилище.
@@ -38,13 +47,13 @@ def delete_csv(input_string: str) -> None:
     Возвращает строку с информацией о ходе выполнения задачи.
     '''
     temp_string = ''
-    found_note =''
+    # found_note =''
     with open(notes_csv, 'r', encoding='utf-8', newline='\n') as file:
         reader = csv.reader(file)
         for row in reader:
             note = ','.join(row).lower()
             if input_string.lower() in note:
-                found_note = note
+                # found_note = note
                 continue
             else:
                 temp_string += f'{note}\n'
@@ -67,37 +76,12 @@ def search_note_by_input(search_input: str) -> str:
     return find_note
 
 
-
-
-# def search_contact(contact):
-#     """
-#     Ищет контакт по запросу
-#     """
-#     with open(t, 'r', encoding='utf-8') as f:
-#         search_contact =''
-#         for line in f:
-#             if contact in line:
-#                 print(line)
-#                 search_contact = line
-#         return search_contact
-
-
-# def save_note(note):
-#     """
-#     Функция записывает новую заметку
-#     """
-#     with open(notes, 'a', encoding='utf-8') as file:
-#         file.write(f"\n{note}")
-
-# def delete_note(contact):
-#     """
-#     Удаляет заметку
-#     """
-#     f = open(notes, 'r', encoding='utf-8')
-#     lines = f.readlines()
-#     f.close()
-#     f = open(t, 'w', encoding='utf-8')
-#     for line in lines:
-#         if line != contact:
-#             f.write(line)
-#     f.close()
+# def search_note_by_date(date_input: str) -> str:
+#     with open(notes_csv, 'r', encoding='utf-8', newline='\n') as file:
+#         reader = csv.reader(file)
+#         find_notes = ''
+#         for row in reader:
+#             note = '\n'.join(row)
+#             if date_input in note:
+#                 find_notes = ''.join(note)
+#     return find_notes

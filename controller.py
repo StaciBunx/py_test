@@ -33,7 +33,10 @@ def mynotes():
                         note = noto.write_note(edit_note)
                         csvo.write_csv(note)
                         ui.success()
-            # elif next_command == 2: # поиск по дате
+            elif next_command == 2: # поиск по дате
+                search_date = ui.search_date()
+                csvo.search_note_by_date(search_date)
+
 
 
         if command == 3:  # добавить новую запись

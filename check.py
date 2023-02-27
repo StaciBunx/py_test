@@ -29,6 +29,18 @@ def check_empty(text: str) -> str:
         except ValueError:
             print(Fore.RED + 'Неверно!' + Style.RESET_ALL)
 
+# def check_digit(date: str) -> int:
+#     try:
+#         input_date = str(date)
+#         date.replace('-', '')
+#         if (date.isdigit()):
+#             return date
+#         else:
+#             print(Fore.RED + 'Вы ввели что-то не то' + Style.RESET_ALL)
+#     except ValueError:
+#         print(Fore.RED + 'Неверно!' + Style.RESET_ALL)
+
+
 
 # def check_alpha(text: str) -> str:
 #     while True:
@@ -42,15 +54,6 @@ def check_empty(text: str) -> str:
 #             print(Fore.RED + 'Неверно!' + Style.RESET_ALL)
 
 
-def check_digit(date: str) -> int:
-    date.replace('-', '')
-    try:
-        if (date.isdigit()):
-            return date
-        else:
-            print(Fore.RED + 'Вы ввели что-то не то' + Style.RESET_ALL)
-    except ValueError:
-        print(Fore.RED + 'Неверно!' + Style.RESET_ALL)
 
 
 # def check_empty(input:str) -> str:
