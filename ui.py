@@ -56,7 +56,7 @@ def note_found(find_note: str) -> None:
     print(f'Найдена заметка:\n{find_note}')
 
 
-def search_submenu_action(number: str = '') -> int:
+def search_submenu_action(number: str = '') -> str:
     '''
     Подменю после вызова поиска записи
     '''
@@ -70,8 +70,6 @@ def search_input(text: str = '') -> str:
     '''Ввод запроса в поисковую строку'''
     print((
         f'{Style.BRIGHT + Fore.YELLOW}✍️  Введите текст для поиска:{Style.RESET_ALL} '))
-    # search_note = ch.check_empty(text)
-    # search_note = ch.check_alpha(text)
     return ch.check_empty(text)
 
 
@@ -96,21 +94,3 @@ def input_new_note() -> list:
     current_date = date.today()
     note.append(current_date)
     return note
-
-
-# def edit_note(edit_input: str = '') -> str:
-#     '''
-#     Функция перезаписывает новые данные поверх имеющейся записи
-#     '''
-#     print((
-#         f'{Style.BRIGHT + Fore.YELLOW}📇 Введите новые данные: {Style.RESET_ALL}'))
-#     note = []
-#     heading = ch.check_alpha('Заголовок: ')
-#     heading = heading.capitalize()
-#     note.append(heading)
-#     text = ch.check_alpha('Текст: ')
-#     # text = text.capitalize()
-#     note.append(text)
-#     current_date = date.today()
-#     note.append(current_date)
-#     return note
